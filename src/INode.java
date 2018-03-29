@@ -1,5 +1,4 @@
 public interface INode {
-    void setNode(lexemes lex);
     String getNode();
 }
 class NumericNode implements INode{
@@ -8,24 +7,35 @@ class NumericNode implements INode{
     INode leftChild;
     INode rightChild;
     @Override
-    public void setNode(lexemes lex) {
-        this.value = Double.parseDouble(lex.value); // TODO: 28.03.2018 Formalisation tree-generation algorithm(reqursion?) and find optimal path for set childs 
-    }
-
-    @Override
     public String getNode() {
         return null;
     }
 }
 
 class OperatorNode implements INode{
-
-    @Override
-    public void setNode(lexemes lex) {
-    }
+    int iData; //Используется в качестве ключа
+    char value;
+    INode leftChild;
+    INode rightChild;
+//    OperatorNode(lexemes lex, int index) {
+//        this.value = lex.value.charAt(0); // TODO: 28.03.2018 Formalisation tree-generation algorithm(reqursion?) and find optimal path for set childs
+//        this.iData = index;
+//    }
+//    @Override
+//    public void setChildren(INode left, INode right) {
+//
+//    }
 
     @Override
     public String getNode() {
         return null;
+    }
+}
+class Tree{
+    INode root;
+    public void insert(int index, lexemes lex){
+        {
+
+        }
     }
 }
