@@ -18,7 +18,7 @@ class OperatorNode implements INode{
     INode leftChild;
     INode rightChild;
 //    OperatorNode(lexemes lex, int index) {
-//        this.value = lex.value.charAt(0); // TODO: 28.03.2018 Formalisation tree-generation algorithm(reqursion?) and find optimal path for set childs
+//        this.value = lex.value.charAt(0); // TODO: 28.03.2018 To formalisated tree-generation algorithm(reqursion?) and find optimal path for set childs
 //        this.iData = index;
 //    }
 //    @Override
