@@ -68,4 +68,21 @@ public class parser {
         }
         return 0;
     }
+    public boolean validation(){
+        boolean stat = true;
+        int bracket = 0;
+        if(this.lex[0]!=null){
+            for(int i = 0; i < countValues; i++){
+                //Brackets check
+                if(this.lex[i].value.charAt(0) == '('){
+                    bracket++;
+                }else if(this.lex[i].value.charAt(0) == ')'){
+                    bracket--;
+                }
+                if(bracket < 0) return false;
+            }
+        } else stat = false;
+        if(bracket!=0) stat = false;
+        return stat;
+    }
 }

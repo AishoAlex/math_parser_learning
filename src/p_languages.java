@@ -9,5 +9,6 @@ public class p_languages {
         parser p = new parser(input);
         p.generate();
         for(int i = 0; i < p.countValues; i++) p.lex[i].getLexeme();
+        System.out.println(p.validation());
     }
 }
