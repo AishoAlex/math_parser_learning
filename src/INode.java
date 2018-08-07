@@ -1,41 +1,78 @@
 public interface INode {
+    int Key = 0;
+    INode parent = null;
+    String value = null;
+    INode leftChild = null;
+    INode rightChild = null;
     String getNode();
+    String nodeType();
 }
-class NumericNode implements INode{
-    int iData; //Используется в качестве ключа
-    double value;
-    INode leftChild;
-    INode rightChild;
+class numericNode implements INode{
+    INode parent;
+    Double value;
+    int Key;
+    numericNode(INode parent, String value, int Key){
+        this.parent = parent;
+        this.value = Double.valueOf(value);
+        this.Key = Key;
+    }
     @Override
     public String getNode() {
         return null;
     }
+
+    @Override
+    public String nodeType() {
+        return "Numeric";
+    }
 }
 
-class OperatorNode implements INode{
-    int iData; //Используется в качестве ключа
-    char value;
+class operatorNode implements INode{
+    INode parent;
     INode leftChild;
     INode rightChild;
-//    OperatorNode(lexemes lex, int index) {
-//        this.value = lex.value.charAt(0); // TODO: 28.03.2018 To formalisated tree-generation algorithm(reqursion?) and find optimal path for set childs
-//        this.iData = index;
-//    }
-//    @Override
-//    public void setChildren(INode left, INode right) {
-//
-//    }
+    String value;
+    int Key;
+    operatorNode(INode parent, String value, int Key){
+        this.parent = parent;
+        this.value = value;
+        this.Key = Key;
+    }
+    @Override
+    public String getNode() {
+        return null;
+    }
+
+    @Override
+    public String nodeType() {
+        return "Operator";
+    }
+
+}
+class nodeTree implements INode {
+    operatorNode root;
+
+    nodeTree(INode parent, String value, int Key){
+        root = new operatorNode(parent, value, Key);
+    }
+    public void getTree(INode node){
+
+            System.out.println(node.value);
+            if(node.leftChild!=null){
+                getTree(node.leftChild);
+            }
+            if(node.rightChild!=null){
+                getTree(node.rightChild);
+            }
+    }
 
     @Override
     public String getNode() {
         return null;
     }
-}
-class Tree{
-    INode root;
-    public void insert(int index, lexemes lex){
-        {
 
-        }
+    @Override
+    public String nodeType() {
+        return null;
     }
 }
